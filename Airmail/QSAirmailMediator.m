@@ -12,9 +12,13 @@
 
 #pragma mark Mail Mediator Protocol
 
-/*
+
 - (NSDictionary *)smtpServerDetails
 {
+    // no Send Directly support for now :(
+    return nil;
+
+    /*
     NSString *smtpPath = [@"~/Library/Application Support/MailMate/Submission.plist" stringByStandardizingPath];
     NSDictionary *submission = [NSDictionary dictionaryWithContentsOfFile:smtpPath];
     NSArray *servers = submission[@"smtpServers"];
@@ -55,8 +59,9 @@
         // no SMTP servers defined
         return nil;
     }
+     */
 }
-*/
+
 
 - (void)sendEmailTo:(NSArray *)addresses from:(NSString *)sender subject:(NSString *)subject body:(NSString *)body attachments:(NSArray *)pathArray sendNow:(BOOL)sendNow
 {
@@ -72,7 +77,7 @@
 
     for (NSString *attachment in pathArray)
     {
-        NSString* path = [(NSString*)CFURLCopyFileSystemPath((CFURLRef)[NSURL fileURLWithPath:attachment], kCFURLHFSPathStyle) autorelease];
+        NSString* path = (NSString*)CFBridgingRelease(CFURLCopyFileSystemPath((__bridge CFURLRef)[NSURL fileURLWithPath:attachment], kCFURLHFSPathStyle));
         [scriptSource appendString:[NSString stringWithFormat:@"make new mail attachment with properties {filename:\"%@\" as alias}\n", path]];
     }
 
@@ -93,7 +98,6 @@
     if (error) {
         NSLog(@"Error sending message with Airmail: %@", error[NSAppleScriptErrorMessage]);
     }
-    [script release];
 }
 
 - (NSImage *)iconForAction:(NSString *)actionID

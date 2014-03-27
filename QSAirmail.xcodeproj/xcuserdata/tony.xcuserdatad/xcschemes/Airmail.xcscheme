@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EAE8216718E366D000F6471C"
-               BuildableName = "QSAirmail.qsplugin"
+               BuildableName = "Airmail Plugin.qsplugin"
                BlueprintName = "QSAirmail"
                ReferencedContainer = "container:QSAirmail.xcodeproj">
             </BuildableReference>

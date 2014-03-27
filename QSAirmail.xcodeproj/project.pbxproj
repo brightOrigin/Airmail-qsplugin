@@ -14,7 +14,7 @@
 
 /* Begin PBXFileReference section */
 		EA72C72F18E37E83004A1648 /* QSMailMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSMailMediator.h; path = "../../elements.support.mail-qsplugin/QSMailMediator.h"; sourceTree = "<group>"; };
-		EAE8216818E366D000F6471C /* QSAirmail.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QSAirmail.qsplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAE8216818E366D000F6471C /* Airmail Plugin.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Airmail Plugin.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE8216B18E366D000F6471C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		EAE8216F18E366D000F6471C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		EAE8217118E366D000F6471C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		EAE8216918E366D000F6471C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EAE8216818E366D000F6471C /* QSAirmail.qsplugin */,
+				EAE8216818E366D000F6471C /* Airmail Plugin.qsplugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,7 +118,7 @@
 			);
 			name = QSAirmail;
 			productName = Airmail;
-			productReference = EAE8216818E366D000F6471C /* QSAirmail.qsplugin */;
+			productReference = EAE8216818E366D000F6471C /* Airmail Plugin.qsplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -215,13 +215,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EAE8217718E366D000F6471C /* QSPlugIn.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../Support/MailCore/Source,
 					"../Support/MailCore/libetpan/build-mac/build/Debug/include",
 				);
-				PRODUCT_NAME = QSAirmail;
+				PRODUCT_NAME = "Airmail Plugin";
 			};
 			name = Debug;
 		};
@@ -229,13 +230,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EAE8217718E366D000F6471C /* QSPlugIn.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../Support/MailCore/Source,
 					"../Support/MailCore/libetpan/build-mac/build/Debug/include",
 				);
-				PRODUCT_NAME = QSAirmail;
+				PRODUCT_NAME = "Airmail Plugin";
 			};
 			name = Release;
 		};
