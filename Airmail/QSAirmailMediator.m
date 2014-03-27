@@ -60,24 +60,33 @@
 
 - (void)sendEmailTo:(NSArray *)addresses from:(NSString *)sender subject:(NSString *)subject body:(NSString *)body attachments:(NSArray *)pathArray sendNow:(BOOL)sendNow
 {
-    // combine recipients into a string
-    NSString *recipients = [addresses componentsJoinedByString:@","];
     // remove all but the sender's e-mail address
     sender = [self addressOnly:sender];
-    NSString *mailtoURL = [NSString stringWithFormat:@"mailto:%@?subject=%@&body=%@&from=%@", recipients, [subject URLEncoding], [body URLEncoding], sender];
-    NSURL *attachmentURL = nil;
-    NSString *attachmentString = nil;
-    for (NSString *attachmentPath in pathArray) {
-        attachmentURL = [NSURL fileURLWithPath:attachmentPath];
-        attachmentString = [NSString stringWithFormat:@"&attachment-url=%@", [attachmentURL absoluteString]];
-        mailtoURL = [mailtoURL stringByAppendingString:attachmentString];
+
+    NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"Airmail\"\nactivate\nset theMessage to make new outgoing message with properties {subject:\"%@\", content:\"%@\"}\ntell theMessage\nset sender to \"%@\"\n", subject, body, sender];
+
+    for (NSString *recipient in addresses)
+    {
+        [scriptSource appendString:[NSString stringWithFormat:@"make new to recipient at end of to recipients with properties {name:\"\", address:\"%@\"}\n", recipient]];
     }
-    if (sendNow) {
-        mailtoURL = [mailtoURL stringByAppendingString:@"&send-now=yes"];
+
+    for (NSString *attachment in pathArray)
+    {
+        NSString* path = [(NSString*)CFURLCopyFileSystemPath((CFURLRef)[NSURL fileURLWithPath:attachment], kCFURLHFSPathStyle) autorelease];
+        [scriptSource appendString:[NSString stringWithFormat:@"make new mail attachment with properties {filename:\"%@\" as alias}\n", path]];
     }
-    
-    // "from" and "attachment-url" require the AppleScript specific trust option
-    NSString *scriptSource = [NSString stringWithFormat:@"tell application \"Airmail\"\nopen location \"%@\" with trust\nactivate\nend tell", mailtoURL];
+
+    if (sendNow)
+    {
+        [scriptSource appendString:@"sendmessage\n"];
+    }
+    else
+    {
+        [scriptSource appendString:@"compose\n"];
+    }
+
+    [scriptSource appendString:@"end tell\nend tell"];
+
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptSource];
     NSDictionary *error = nil;
     [script executeAndReturnError:&error];

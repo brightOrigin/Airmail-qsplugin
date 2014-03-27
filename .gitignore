@@ -16,9 +16,4 @@ autom4te.cache
 Developer.xcconfig
 *.xcworkspace
 *.xcuserdatad
-Quicksilver*.dmg
-*.pyc
-Quicksilver/SharedSupport/Changes*.html
-Quicksilver/Code-External/VDKQueue
-Quicksilver/Code-External/DisableSubviews
 .idea/

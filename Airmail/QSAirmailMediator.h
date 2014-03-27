@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Bright Origin. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "QSMailMediator.h"
 
 @interface QSAirmailMediator : NSObject <QSMailMediator>
 
