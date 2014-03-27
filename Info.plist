@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDisplayName</key>
+	<string>Airmail Plugin</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>com.brightorigin.quicksilver.${PRODUCT_NAME:rfc1034identifier}</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Airmail Plugin</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>QSPlugIn</key>
+	<dict>
+		<key>author</key>
+		<string>Tony Papale</string>
+		<key>categories</key>
+		<array>
+			<string>Applications</string>
+			<string>Mail &amp; Chat</string>
+		</array>
+		<key>description</key>
+		<string>Compose and send messages using Airmail</string>
+		<key>extendedDescription</key>
+		<string>&lt;h2&gt;Airmail Quicksilver Plugin&lt;/h2&gt; &lt;p&gt;This plug-in allows you to compose and send messages using the &lt;a href="http://airmailapp.com/"&gt;Airmail App&lt;/a&gt; &lt;/p&gt; &lt;div&gt; &lt;b&gt; &lt;br /&gt; &lt;/b&gt; &lt;/div&gt; &lt;div&gt; &lt;b&gt;Notes:&lt;/b&gt; &lt;/div&gt; &lt;div&gt; &lt;ul&gt; &lt;li&gt;Be sure to choose Airmail under Preferences → Handlers.&lt;/li&gt; &lt;li&gt;Uncheck any email actions or services in Preferences → Actions that don’t have the Airmail icon&lt;/li&gt; &lt;li&gt;If you have more then one Airmail account you can specify an email address in the Preferences → E-mail Options → Custom From Address: and Airmail should use the account matching that email address.&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; &lt;h3&gt; &lt;b&gt; &lt;br /&gt; &lt;/b&gt; &lt;/h3&gt; &lt;h3&gt; &lt;b&gt;Actions:&lt;/b&gt; &lt;/h3&gt; &lt;p&gt; &lt;b&gt;Compose E-mail&lt;/b&gt; &lt;br /&gt; Opens up a new mail window with the email address from the first pane as the recipient&lt;/p&gt; &lt;p&gt; &lt;b&gt;E-mail To… (Compose)&lt;/b&gt; &lt;br /&gt; Opens up a new mail window with the selected item(s) from the first pane addressed to the recipient(s) in the third pane&lt;/p&gt; &lt;p&gt; &lt;b&gt;E-mail To… (Send)&lt;/b&gt; &lt;br /&gt; Same as the E-mail To… (Compose) action above but instead of opening up the compose window it sends the email&lt;/p&gt; &lt;p&gt;&lt;/p&gt; &lt;p&gt; &lt;b&gt;E-mail Item…(Compose)&lt;/b&gt; &lt;br /&gt; Opens up a new mail window with the selected item(s) from the third pane addressed to the recipient(s) from the first pane&lt;/p&gt; &lt;p&gt; &lt;b&gt;E-mail Item…(Send)&lt;/b&gt; &lt;br /&gt; Same as the E-mail Item…(Compose) action above but instead of opening up the compose window it sends the email&lt;/p&gt; &lt;p&gt; &lt;br /&gt; &lt;/p&gt; &lt;p&gt;*See the E-mail Support plug-in’s help for more details.&lt;br /&gt; &lt;/p&gt; &lt;div&gt; &lt;br /&gt; &lt;/div&gt; &lt;div&gt; &lt;div&gt; &lt;br /&gt; &lt;/div&gt; &lt;/div&gt;</string>
+		<key>icon</key>
+		<string>Airmail</string>
+		<key>relatedBundles</key>
+		<array>
+			<string>it.bloop.airmail</string>
+		</array>
+	</dict>
+	<key>QSRegistration</key>
+	<dict>
+		<key>QSMailMediators</key>
+		<dict>
+			<key>it.bloop.airmail</key>
+			<string>QSAirmailMediator</string>
+		</dict>
+	</dict>
+	<key>QSRequirements</key>
+	<dict>
+		<key>bundles</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>it.bloop.airmail</string>
+				<key>name</key>
+				<string>Airmail</string>
+			</dict>
+		</array>
+		<key>plugins</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>com.blacktree.Quicksilver.QSEmailSupport</string>
+				<key>name</key>
+				<string>Mail Support</string>
+			</dict>
+		</array>
+		<key>version</key>
+		<string>4001</string>
+	</dict>
+	<key>QSResourceAdditions</key>
+	<dict>
+		<key>Airmail</key>
+		<dict>
+			<key>bundle</key>
+			<string>it.bloop.airmail</string>
+			<key>resource</key>
+			<string>Airmail.icns</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
